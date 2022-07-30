@@ -5,6 +5,7 @@ import java.util.List;
 
 public class InputAndOutputStream {
     //#1
+    //neobhodimiy commentariy
     public static void readInputStream(InputStream in, int[] arr) throws IOException {
         try {
             DataInputStream data = new DataInputStream(in);

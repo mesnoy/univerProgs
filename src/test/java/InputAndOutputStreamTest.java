@@ -54,9 +54,11 @@ public class InputAndOutputStreamTest {
     public void testGetListOfFilesByTypeTest() throws IOException {
         File a = new File("C:\\Users\\user\\IdeaProjects\\univerProgs\\a.txt");
         File c = new File("C:\\Users\\user\\IdeaProjects\\univerProgs\\c.txt");
+        File d = new File("C:\\Users\\user\\IdeaProjects\\univerProgs\\house.txt");
         List<File> testList = new ArrayList<>();
         testList.add(a);
         testList.add(c);
+        testList.add(d);
         Assert.assertEquals(testList, InputAndOutputStream.getFiles("txt", "C:\\Users\\user\\IdeaProjects\\univerProgs"));
     }
 }

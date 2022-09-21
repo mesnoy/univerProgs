@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -6,9 +7,9 @@ public class Person implements Serializable {
     private String surname;
     private String name;
     private String patronymic;
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
-    public Person(String surname, String name, String patronymic, Date dateOfBirth) {
+    public Person(String surname, String name, String patronymic, String dateOfBirth) {
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
@@ -30,7 +31,7 @@ public class Person implements Serializable {
         return patronymic;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -46,7 +47,7 @@ public class Person implements Serializable {
         this.patronymic = patronymic;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

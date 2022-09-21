@@ -21,10 +21,6 @@ public class InputAndOutputStream {
         }
     }
 
-    public static void keks(int[] arr) {
-        Arrays.fill(arr, 5);
-    }
-
     public static void writeOutputStream(OutputStream out, int[] arr) throws IOException {
         try {
             DataOutputStream data = new DataOutputStream(out);
@@ -42,9 +38,11 @@ public class InputAndOutputStream {
 
     //#2
     public static void reader(Reader in, int[] arr) throws IOException {
-        try {
-            for (int item : arr) {
-                item = in.read();
+        try (BufferedReader stream = new BufferedReader(in)){
+            String s = stream.readLine();
+            String[] numbers = s.split(" ");
+            for(int i = 0; i < arr.length; i++){
+                arr[i] = Integer.parseInt(numbers[i]);
             }
         } catch (IOException e) {
             throw new IOException();
@@ -58,7 +56,8 @@ public class InputAndOutputStream {
     public static void writer(Writer out, int[] arr) throws IOException {
         try {
             for (int item : arr) {
-                out.write(item);
+                out.write(Integer.toString(item));
+                out.write(' ');
             }
         } catch (IOException e) {
             throw new IOException();
@@ -70,13 +69,18 @@ public class InputAndOutputStream {
     }
 
     //#3
-    public static void randomAccessRead(InputStream in, int pos, int[] arr) throws IOException {
+    public static void randomAccessRead(RandomAccessFile in, int pos, int[] arr) throws IOException {
         try {
-            RandomAccessFile file = new RandomAccessFile(String.valueOf(in), "r");
-            file.seek(pos);
-            for (int item : arr) {
-                item = file.readInt();
+            in.seek(pos * 4L);
+            for (int i = 0; i < arr.length - pos + 1; i++) {
+                int b = in.readInt();
+                arr[i] = b;
             }
+            /*RandomAccessFile file = new RandomAccessFile(String.valueOf(in), "r");
+            file.seek(pos);
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = file.readInt();
+            }*/
         } catch (IOException e) {
             throw new IOException();
         } finally {
@@ -86,19 +90,41 @@ public class InputAndOutputStream {
         }
     }
 
+    public static void readStream(RandomAccessFile stream, int[] arr, int pos) throws IOException {
+        stream.seek(pos * 4L);
+        for (int i = 0; i < arr.length - pos + 1; i++) {
+            int b = stream.readInt();
+            arr[i] = b;
+        }
+    }
     //#4
     public static List<File> getFiles(String extension, String path) throws IOException {
         List<File> result = new ArrayList<File>();
         File catalog = new File(path);
         File[] files = catalog.listFiles();
-        assert files != null;
-        for (File file : files) {
-            if (file.getName().lastIndexOf('.' + extension) == file.getName().length() - extension.length()) {
-                result.add(file);
+        if (files != null) {
+            for (File file : files) {
+                if (file.getName().endsWith(extension)) {
+                    result.add(file);
+                }
             }
         }
         return result;
     }
+
+    /*public static List<String> getFiles(String path, String type){
+        File dir = new File(path);
+        String[] files = dir.list();
+        List<String> list = new ArrayList<>();
+        if(files != null) {
+            for (String file : files) {
+                if (file.endsWith(type)) {
+                    list.add(file);
+                }
+            }
+        }
+        return list;
+    }*/
 
     //#6
 

@@ -5,7 +5,7 @@
     <classes>
       <class name="InputAndOutputStreamTest">
         <methods>
-          <include name="ReadInputStreamTest"/>
+          <include name="testGetListOfFilesByTypeTest"/>
         </methods>
       </class> <!-- InputAndOutputStreamTest -->
     </classes>

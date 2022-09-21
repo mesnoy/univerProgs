@@ -8,14 +8,36 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">InputAndOutputStreamTest</th></tr>
-<tr><td><a href="#t0">Command line test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">147</td><td></td><td></td></tr>
+<tr><th colspan="8">Command line suite</th></tr>
+<tr><td><a href="#t0">Command line test</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">192</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">InputAndOutputStreamTest</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Command line test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">InputAndOutputStreamTest</td><td><a href="#m0">ReadInputStreamTest</a></td><td rowspan="1">1658928395440</td><td rowspan="1">19</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Command line suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Command line test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">HouseServiceTest</td><td><a href="#m0">serialHouseJSON</a></td><td rowspan="1">1663770681641</td><td rowspan="1">139</td></tr><tr class="failedodd"><td rowspan="1">InputAndOutputStreamTest</td><td><a href="#m1">testGetListOfFilesByTypeTest</a></td><td rowspan="1">1663770681788</td><td rowspan="1">5</td></tr><tr><th colspan="4">Command line test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">HouseServiceTest</td><td><a href="#m2">serialHouse</a></td><td rowspan="1">1663770681624</td><td rowspan="1">15</td></tr><tr class="passedodd"><td rowspan="3">InputAndOutputStreamTest</td><td><a href="#m3">readStreamTest</a></td><td rowspan="1">1663770681784</td><td rowspan="1">3</td></tr><tr class="passedodd"><td><a href="#m4">readWriteBinaryTest</a></td><td rowspan="1">1663770681787</td><td rowspan="1">1</td></tr><tr class="passedodd"><td><a href="#m5">testWriteReadStream</a></td><td rowspan="1">1663770681794</td><td rowspan="1">1</td></tr></tbody>
 </table>
-<h2>Command line test</h2><h3 id="m0">InputAndOutputStreamTest#ReadInputStreamTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">arrays first differed at element [0]; expected:&lt;1&gt; but was:&lt;0&gt;
-	at InputAndOutputStreamTest.ReadInputStreamTest(InputAndOutputStreamTest.java:29)
+<h2>Command line test</h2><h3 id="m0">HouseServiceTest#serialHouseJSON</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Java 8 date/time type `java.time.LocalDate` not supported by default: add Module &quot;com.fasterxml.jackson.datatype:jackson-datatype-jsr310&quot; to enable handling (through reference chain: House[&quot;headOfTheHouse&quot;]-&gt;Person[&quot;dateOfBirth&quot;])
+	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
+	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1300)
+	at com.fasterxml.jackson.databind.ser.impl.UnsupportedTypeSerializer.serialize(UnsupportedTypeSerializer.java:35)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:774)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:774)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4568)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:3821)
+	at HouseService.serializeJSON(HouseService.java:27)
+	at HouseServiceTest.serialHouseJSON(HouseServiceTest.java:37)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 40 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+... Removed 37 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">InputAndOutputStreamTest#testGetListOfFilesByTypeTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: lists don&apos;t have the same size expected [3] but found [2]
+	at InputAndOutputStreamTest.testGetListOfFilesByTypeTest(InputAndOutputStreamTest.java:60)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 44 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">HouseServiceTest#serialHouse</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">InputAndOutputStreamTest#readStreamTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">InputAndOutputStreamTest#readWriteBinaryTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">InputAndOutputStreamTest#testWriteReadStream</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -1,8 +1,11 @@
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.io.*;
 
 public class HouseService {
-    public void serialize(House house, OutputStream os) throws IOException {
+    public static void serialize(House house, OutputStream os) throws IOException {
         try (ObjectOutputStream oos = new ObjectOutputStream(os)) {
             oos.writeObject(house);
         } catch (Exception ex) {
@@ -10,11 +13,21 @@ public class HouseService {
         }
     }
 
-    public void deserialize(House house, InputStream is) throws IOException {
+    public static House deserialize(InputStream is) throws IOException {
+        House result = new House();
         try (ObjectInputStream ois = new ObjectInputStream(is)) {
-            house = (House) ois.readObject();
+            result = (House) ois.readObject();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+        return result;
+    }
+
+    public static String serializeJSON(House house) throws JsonProcessingException {
+        return new ObjectMapper().writeValueAsString(house);
+    }
+
+    public static House deserializeJSON(String json) throws JsonProcessingException {
+        return new ObjectMapper().readValue(json, House.class);
     }
 }
